@@ -1,6 +1,6 @@
 
 resource "aws_s3_bucket" "demo" {
-  bucket = "venkatesh-github-actions-demo-2026"
+  bucket = "${var.bucket_name}"
 
   tags = {
     Name        = "GitHub-Actions-Terraform"
