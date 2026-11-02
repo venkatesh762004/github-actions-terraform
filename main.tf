@@ -26,10 +26,3 @@ resource "aws_instance" "web" {
     Name = "GitHub-Actions-EC2"
   }
 }
-resource "aws_iam_user" "developer" {
-  name = "terraform-github-user"
-
-  tags = {
-    Name = "Terraform-IAM-User"
-  }
-}
