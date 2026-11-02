@@ -28,17 +28,17 @@ output "security_group_name" {
   value = aws_security_group.allow_ssh.name
 }
 output "aws_instance_id" {
-  value = aws_instance.demo.id
+  value = aws_instance.example.id
 }
 output "aws_instance_public_ip" {
-  value = aws_instance.demo.public_ip
+  value = aws_instance.example.public_ip
 }
 output "aws_instance_private_ip" {
-  value = aws_instance.demo.private_ip
+  value = aws_instance.example.private_ip
 }
 output "aws_rds_instance_id" {
-  value = aws_db_instance.demo.id
+  value = aws_db_instance.example.id
 }
 output "aws_rds_instance_endpoint" {
-  value = aws_db_instance.demo.endpoint
+  value = aws_db_instance.example.endpoint
 }
