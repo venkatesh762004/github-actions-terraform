@@ -1,4 +1,3 @@
-
 # Get the latest Amazon Linux 2023 AMI
 data "aws_ssm_parameter" "al2023_ami" {
   name = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
@@ -177,7 +176,7 @@ resource "aws_db_subnet_group" "example" {
 
   subnet_ids = [
     aws_subnet.subnet3.id,
-    aws_subnet.subnet4.id
+    aws_subnet.subnet4.id,
   ]
 
   tags = {
@@ -187,22 +186,22 @@ resource "aws_db_subnet_group" "example" {
 
 # RDS MySQL
 resource "aws_db_instance" "example" {
-  identifier             = "github-actions-mysql-db"
-  allocated_storage      = 20
-  storage_type           = "gp3"
-  engine                 = "mysql"
-  instance_class         = "db.t3.micro"
-  db_name                = "mydb"
-  username               = "admin"
-  password               = var.db_password
-  port                   = 3306
-  db_subnet_group_name   = aws_db_subnet_group.example.name
-  vpc_security_group_ids = [aws_security_group.rds.id]
+  identifier              = "github-actions-mysql-db"
+  allocated_storage        = 20
+  storage_type             = "gp3"
+  engine                   = "mysql"
+  instance_class           = "db.t3.micro"
+  db_name                  = "mydb"
+  username                 = "admin"
+  password                 = var.db_password
+  port                     = 3306
+  db_subnet_group_name     = aws_db_subnet_group.example.name
+  vpc_security_group_ids   = [aws_security_group.rds.id]
 
-  publicly_accessible    = false
-  storage_encrypted      = true
+  publicly_accessible     = false
+  storage_encrypted       = true
   backup_retention_period = 1
-  skip_final_snapshot   = true
+  skip_final_snapshot     = true
 
   tags = {
     Name = "GitHub-Actions-RDS"

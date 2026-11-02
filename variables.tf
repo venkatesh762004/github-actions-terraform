@@ -1,4 +1,3 @@
-
 variable "aws_region" {
   description = "AWS region"
   type        = string
@@ -9,6 +8,7 @@ variable "db_password" {
   description = "RDS master password"
   type        = string
   sensitive   = true
+  default     = "ChangeMe123!"
 }
 
 variable "allowed_ssh_cidr" {
