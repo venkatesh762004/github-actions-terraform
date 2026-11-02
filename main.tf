@@ -1,6 +1,6 @@
 
 resource "aws_s3_bucket" "demo" {
-  bucket = "${var.bucket_name}"
+  bucket = "venkat-terraform-demo-bucket"
 
   tags = {
     Name        = "GitHub-Actions-Terraform"
