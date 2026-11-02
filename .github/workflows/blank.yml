@@ -21,12 +21,13 @@ jobs:
 
       - name: Configure Terraform
         uses: hashicorp/setup-terraform@v3
-
-      - name: Configure AWS Credentials
+   
+      - name: Configure AWS Credentials using OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
-          aws-region: ${{ vars.AWS_REGION }}
+          role-to-assume: arn:aws:iam::699975678994:role/OIDC-role
+          aws-region: us-east-1
+          audience: sts.amazonaws.com
 
       - name: Verify AWS Identity
         run: aws sts get-caller-identity
